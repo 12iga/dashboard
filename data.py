@@ -4,7 +4,7 @@ import plotly.express as px
 
 # Show data
 def load_data():
-    df = pd.read_csv("D:/SEMESTER 4/Pemrograman II/dashboard2/dataset/covid_19_indonesia_time_series_all.csv")
+    df = pd.read_csv("D:\SEMESTER 4\Pemrograman II\dashboard2\covid_19_indonesia_time_series_all.csv")
     df = df[df["Location"] != "Indonesia"]
     return df
 
@@ -16,11 +16,15 @@ def filter_data(df, year=None, location=None):
     return df
  
 def select_year():
-    return st.sidebar.selectbox(
+    years = [None, 2020, 2021, 2022]  
+    selected_year = st.sidebar.selectbox(
         "📅 Pilih Tahun",
-        options=[None, 2020, 2021, 2022],
-        format_func=lambda x: "Semua Tahun" if x is None else x
+        options=years,
+        format_func=lambda x: "Semua Tahun" if x is None else str(x)
     )
+    return selected_year
+
+
 
 def select_location(df):
     locations = sorted(df['Location'].unique())
