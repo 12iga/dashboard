@@ -4,7 +4,7 @@ import plotly.express as px
 
 # Show data
 def load_data():
-    df = pd.read_csv("D:\SEMESTER 4\Pemrograman II\dashboard2\covid_19_indonesia_time_series_all.csv")
+    df = pd.read_csv("covid_19_indonesia_time_series_all.csv")
     df = df[df["Location"] != "Indonesia"]
     return df
 
